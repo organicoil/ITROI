@@ -1,0 +1,13 @@
+<book:bookShop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://nure.ua/bookShop /xsd/bookShop.xsd"
+               xmlns:book="http://nure.ua/bookShop">
+
+    <book:book id="3">
+        <book:title>The Emperor's new mind</book:title>
+        <book:author>Roger Penrose</book:author>
+        <book:ISBN>ISBN-12345-1234</book:ISBN>
+        <book:price>200</book:price>
+        <book:category>Monograph</book:category>
+    </book:book>
+
+</book:bookShop>

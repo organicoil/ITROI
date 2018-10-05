@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bookShop xmlns="http://nure.ua/bookShop">
+    <book id="3">
+        <title>The Emperor's new mind</title>
+        <author>[Roger Penrose]</author>
+        <ISBN>ISBN-12345-1234</ISBN>
+        <price>150.0</price>
+        <category>Monograph</category>
+    </book>
+</bookShop>
