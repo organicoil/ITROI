@@ -1,0 +1,74 @@
+﻿<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setBundle basename="i18n"/>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #3d0066;color:white">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="/MainPage">Your Publisher</a>
+
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <c:choose>
+                    <c:when test="${empty user }">
+                        <li><a style="outline: none; border: none;" href="/registration.jsp"><fmt:message key="registration"/></a></li>
+                        <li><a style="outline: none; border: none;" href="/authorization.jsp"><fmt:message key="registration.SignIn"/></a></li>
+                    </c:when>
+                    <c:when test="${!empty sessionScope.user && user.role == 'REGISTR_CLIENT'}">
+                        <li><a style="outline: none; border: none;"
+                               href="/MainPage">Hello, ${sessionScope.user.login}!</a></li>
+                        <li id="lang" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <fmt:message key="profile"/>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="/getOrders"><fmt:message key="information"/></a></li>
+                                <li><a href="/Logout"><fmt:message key="toppanel.logout"/></a></li>
+                            </ul>
+
+                        </li>
+                        <c:if test="${fn:length(orders) == 0}">
+                            <li><a href="/MainPage"><span
+                                    class="glyphicon glyphicon-shopping-cart">${fn:length(orders)}</span></a></li>
+                        </c:if><c:if test="${fn:length(orders) != 0}">
+                        <li><a href="/getMagazines"><span
+                                class="glyphicon glyphicon-shopping-cart">${fn:length(orders)}</span></a></li>
+                    </c:if>
+
+                    </c:when>
+
+                    <c:when test="${!empty sessionScope.user && user.role == 'ADMIN'}">
+                        <li><a style="outline: none; border: none;" href="getUsers"><fmt:message key="admin_panel"/></a></li>
+                        <li><a style="outline: none; border: none;"
+                               href="/MainPage">Hello, ${sessionScope.user.login}!</a>
+                        </li>
+                        <li><a href="/Logout"><fmt:message key="toppanel.logout"/></a></li>
+                    </c:when>
+                </c:choose>
+
+
+
+                <li id="lang" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <fmt:message key="language"/>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a  href="/locale?locale=en" ><img src="../images/en.png" style="width:20px;float:left">
+                            English</a>
+                        </li>
+                        <li><a href="/locale?locale=ru"><img src="../images/ru.png" style="width:20px;float:left">
+                            Russian</a>
+                        </li>
+                        <li><a href="/locale?locale=uk"><img src="../images/uk.png" style="width:20px;float:left">
+                            Ukrainian</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,35 @@
+*.editorconfig
+
+*.mwb
+
+*.mwb.*
+
+*.iml
+
+*.orig
+
+*.log
+
+*.log.*
+
+.idea/
+
+# Compiled files
+
+target/
+
+out/
+
+# Package Files #
+
+*.jar
+
+*.war
+
+*.ear
+
+*.zip
+
+*.tar.gz
+
+*.rar
