@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mag:magazines xmlns:mag="http://ua.nure/entity/magazine/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ua.nure/entity/magazine/ ../xsd/magazines.xsd ">
+
+    <mag:magazine id="1">
+        <mag:title>Cool Mag 1</mag:title>
+        <mag:description>-</mag:description>
+        <mag:price>999</mag:price>
+        <mag:category>it</mag:category>
+        <mag:perMonthPublishCount>2</mag:perMonthPublishCount>
+    </mag:magazine>
+
+    <mag:magazine id="2">
+        <mag:title>Cool Mag 2</mag:title>
+        <mag:description>-</mag:description>
+        <mag:price>123</mag:price>
+        <mag:category>politics</mag:category>
+        <mag:perMonthPublishCount>3</mag:perMonthPublishCount>
+    </mag:magazine>
+
+    <mag:magazine id="3">
+        <mag:title>Cool Mag 3</mag:title>
+        <mag:description>-</mag:description>
+        <mag:price>321</mag:price>
+        <mag:category>sport</mag:category>
+        <mag:perMonthPublishCount>15</mag:perMonthPublishCount>
+    </mag:magazine>
+
+</mag:magazines>

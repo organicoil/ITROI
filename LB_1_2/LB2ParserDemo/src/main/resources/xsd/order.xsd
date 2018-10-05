@@ -19,8 +19,7 @@
                             </xsd:restriction>
                         </xsd:simpleType>
                     </xsd:element>
-                    <xsd:element name="book" type="bk:Book" minOccurs="1"
-                                 maxOccurs="1"/>
+                    <xsd:element name="book" type="bk:Book" minOccurs="1" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -29,8 +28,7 @@
         <xsd:complexContent>
             <xsd:extension base="ent:Entity">
                 <xsd:sequence>
-                    <xsd:element name="orderItem" type="tns:OrderItem"
-                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="orderItem" type="tns:OrderItem" minOccurs="0" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>

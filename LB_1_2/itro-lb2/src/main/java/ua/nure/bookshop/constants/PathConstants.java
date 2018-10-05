@@ -9,5 +9,5 @@ public class PathConstants {
     public static final String JAXB_XML_PATH = RESOURCES_FOLDER_PATH + "/xml/jaxb.xml";
     public static final String JDOM_XML_PATH = RESOURCES_FOLDER_PATH + "/xml/jdom.xml";
 
-    public static final String BOOK_SHOP_XSD_PATH = RESOURCES_FOLDER_PATH + "/xsd/bookShop.xml";
+    public static final String BOOK_SHOP_XSD_PATH = RESOURCES_FOLDER_PATH + "/xsd/bookShop.xsd";
 }

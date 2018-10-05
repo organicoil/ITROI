@@ -66,7 +66,7 @@ public class Orders {
      */
     public List<Order> getOrder() {
         if (order == null) {
-            order = new ArrayList<Order>();
+            order = new ArrayList<>();
         }
         return this.order;
     }

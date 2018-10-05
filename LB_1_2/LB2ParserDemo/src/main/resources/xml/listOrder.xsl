@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:tns="http://order.nure.ua/entity">
+                xmlns:tns="http://order.nure.ua/entity/order/">
     <xsl:output method="html" doctype-public="html"/>
     <xsl:template match="tns:orders">
         <h2>Order</h2>
