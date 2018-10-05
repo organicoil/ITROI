@@ -1,7 +1,5 @@
 *.editorconfig
 
-*.iml
-
 *.orig
 
 *.log
