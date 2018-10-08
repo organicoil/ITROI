@@ -71,8 +71,7 @@ public class DomMarshaller implements BookMarshaller {
         Element bookShopElement = doc.createElementNS(BS_NS, "book");
         bookShopElement.setAttribute("id", String.valueOf(book.getId()));
         bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "title", book.getTitle()));
-        book.getAuthor().forEach(
-                author -> bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "author", book.getAuthor())));
+        book.getAuthor().forEach(author -> bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "author", book.getAuthor())));
         bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "ISBN", book.getISBN()));
         bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "price", book.getPrice()));
         bookShopElement.appendChild(getSimpleElement(doc, BS_NS, "category", book.getCategory().value()));

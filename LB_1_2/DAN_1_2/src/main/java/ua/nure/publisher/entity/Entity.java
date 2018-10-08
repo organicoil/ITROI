@@ -1,8 +1,8 @@
 package ua.nure.publisher.entity;
 
-public class Entity {
+public abstract class Entity {
 
-    protected int id;
+    private int id;
 
     public int getId() {
         return id;

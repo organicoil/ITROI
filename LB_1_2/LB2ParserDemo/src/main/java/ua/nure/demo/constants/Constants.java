@@ -4,7 +4,7 @@ import ua.nure.order.entity.order.ObjectFactory;
 
 public class Constants {
 
-    private static final String RESOURCES_FOLDER_PATH = "LB1-2/LB2ParserDemo/src/main/resources";
+    private static final String RESOURCES_FOLDER_PATH = "D:/Study/Andrusha/Publisher/LB_1_2/LB2ParserDemo/src/main/resources";
 
     public static final String ORDERS_XML_PATH = RESOURCES_FOLDER_PATH + "/xml/orders.xml";
     public static final String INVALID_ORDERS_XML_FILE = RESOURCES_FOLDER_PATH + "/xml/invalid_orders.xml";

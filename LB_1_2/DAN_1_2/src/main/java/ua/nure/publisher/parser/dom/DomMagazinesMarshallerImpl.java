@@ -6,20 +6,19 @@ import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
-import static ua.nure.publisher.util.MarshallingUtils.getSimpleElement;
+import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleElement;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.parser.MagazinesMarshaller;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -34,9 +33,9 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
 
-public class MagazinesMarshaller {
+public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MagazinesMarshaller.class);
+    private static final Logger LOG = Logger.getLogger(DomMagazinesMarshallerImpl.class);
 
     public void marshal(Magazines magazines, String filePath) {
         try {
@@ -61,7 +60,7 @@ public class MagazinesMarshaller {
         Document document = documentBuilder.newDocument();
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINES_QUALIFIED_NAME);
         document.appendChild(magazineElement);
-        magazines.getMagazines().forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
+        magazines.forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
         return document;
     }
 
@@ -77,13 +76,13 @@ public class MagazinesMarshaller {
     }
 
     private Element getMagazineElement(Magazine magazine, Document document) {
-        Element magazineElement = document.createElementNS(MAGAZINE_NAMESPACE_URI, MAGAZINE_QUALIFIED_NAME);
+        Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINE_QUALIFIED_NAME);
         magazineElement.setAttribute(ID_ATTRIBUTE, String.valueOf(magazine.getId()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINE_NAMESPACE_URI, TITLE_ATTRIBUTE, magazine.getTitle()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINE_NAMESPACE_URI, DESCRIPTION_ATTRIBUTE, magazine.getDescription()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINE_NAMESPACE_URI, PRICE_ATTRIBUTE, magazine.getPrice()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINE_NAMESPACE_URI, PER_MONTH_PUBLISH_COUNT, magazine.getPerMonthPublishCount()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINE_NAMESPACE_URI, CATEGORY_ATTRIBUTE, magazine.getCategory().value()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_ATTRIBUTE, magazine.getTitle()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_ATTRIBUTE, magazine.getDescription()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_ATTRIBUTE, magazine.getPrice()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PER_MONTH_PUBLISH_COUNT, magazine.getPerMonthPublishCount()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, CATEGORY_ATTRIBUTE, magazine.getCategory().value()));
         return magazineElement;
     }
 

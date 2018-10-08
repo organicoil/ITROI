@@ -1,4 +1,4 @@
-package ua.nure.publisher.util;
+package ua.nure.publisher.parser.dom.util;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -7,7 +7,7 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UnmarshallingUtils {
+public class DomUnmarshallingUtils {
 
     public static String getValue(Element parent, String nameSpace, String nodeName) {
         return getValues(parent, nameSpace, nodeName).get(0);
@@ -26,6 +26,5 @@ public class UnmarshallingUtils {
         }
         return values;
     }
-
 
 }
