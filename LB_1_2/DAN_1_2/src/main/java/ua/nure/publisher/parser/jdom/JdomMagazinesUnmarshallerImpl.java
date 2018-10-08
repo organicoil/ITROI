@@ -5,7 +5,7 @@ import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
 
@@ -61,7 +61,7 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
             magazine.setTitle(elem.getChild(TITLE_ATTRIBUTE, namespace).getText());
             magazine.setDescription(elem.getChild(DESCRIPTION_ATTRIBUTE, namespace).getText());
             magazine.setPrice(Double.parseDouble(elem.getChild(PRICE_ATTRIBUTE, namespace).getText()));
-            magazine.setPerMonthPublishCount(Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT, namespace).getText()));
+            magazine.setPerMonthPublishCount(Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_ATTRIBUTE, namespace).getText()));
             magazine.setCategory(Category.fromValue(elem.getChildText(CATEGORY_ATTRIBUTE, namespace)));
             return magazine;
         } catch (Exception e) {

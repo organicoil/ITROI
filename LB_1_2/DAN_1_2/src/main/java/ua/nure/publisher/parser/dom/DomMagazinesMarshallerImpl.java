@@ -7,7 +7,7 @@ import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_QUALIFIED_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
 import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleElement;
@@ -81,7 +81,8 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_ATTRIBUTE, magazine.getTitle()));
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_ATTRIBUTE, magazine.getDescription()));
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_ATTRIBUTE, magazine.getPrice()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PER_MONTH_PUBLISH_COUNT, magazine.getPerMonthPublishCount()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
+                PER_MONTH_PUBLISH_COUNT_ATTRIBUTE, magazine.getPerMonthPublishCount()));
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, CATEGORY_ATTRIBUTE, magazine.getCategory().value()));
         return magazineElement;
     }

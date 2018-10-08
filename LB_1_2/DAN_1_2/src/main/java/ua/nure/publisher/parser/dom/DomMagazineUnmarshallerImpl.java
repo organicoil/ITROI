@@ -4,7 +4,7 @@ import static ua.nure.publisher.constants.ValueConstants.CATEGORY_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
 import static ua.nure.publisher.parser.dom.util.DomUnmarshallingUtils.getValue;
@@ -72,7 +72,8 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
         magazine.setTitle(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, TITLE_ATTRIBUTE));
         magazine.setDescription(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, DESCRIPTION_ATTRIBUTE));
         magazine.setPrice(Double.parseDouble(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, PRICE_ATTRIBUTE)));
-        magazine.setPerMonthPublishCount(Integer.parseInt(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, PER_MONTH_PUBLISH_COUNT)));
+        magazine.setPerMonthPublishCount(Integer.parseInt(getValue(magazineElement, MAGAZINES_NAMESPACE_URI,
+                PER_MONTH_PUBLISH_COUNT_ATTRIBUTE)));
         magazine.setCategory(Category.fromValue(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, CATEGORY_ATTRIBUTE)));
         return magazine;
     }

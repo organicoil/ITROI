@@ -7,7 +7,7 @@ import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_QUALIFIED_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
 import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMETER;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
@@ -54,7 +54,7 @@ public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
         elem.addContent(getSimpleElement(TITLE_ATTRIBUTE, MAGAZINES_NAMESPACE_URI, magazine.getTitle()));
         elem.addContent(getSimpleElement(DESCRIPTION_ATTRIBUTE, MAGAZINES_NAMESPACE_URI, magazine.getDescription()));
         elem.addContent(getSimpleElement(PRICE_ATTRIBUTE, MAGAZINES_NAMESPACE_URI, magazine.getPrice()));
-        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT, MAGAZINES_NAMESPACE_URI, magazine.getPerMonthPublishCount()));
+        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_ATTRIBUTE, MAGAZINES_NAMESPACE_URI, magazine.getPerMonthPublishCount()));
         elem.addContent(getSimpleElement(CATEGORY_ATTRIBUTE, MAGAZINES_NAMESPACE_URI, magazine.getCategory().value()));
         return elem;
     }
