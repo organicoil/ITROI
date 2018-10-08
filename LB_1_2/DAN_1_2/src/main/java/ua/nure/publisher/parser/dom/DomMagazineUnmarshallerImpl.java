@@ -52,7 +52,7 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
             NodeList magazineNodeList = magazineElement.getChildNodes();
             return getMagazinesFromNodeList(magazineNodeList);
         }
-        return new Magazines();
+        return null;
     }
 
     private Magazines getMagazinesFromNodeList(NodeList magazineNodeList) {

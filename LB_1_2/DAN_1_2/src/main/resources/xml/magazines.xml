@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mag:magazines xmlns:mag="http://ua.nure/magazine/">
+<mag:magazines xmlns:mag="http://ua.nure/magazines/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ua.nure/magazines/ ../xsd/magazines.xsd">
 
     <mag:magazine id="1">
         <mag:title>Cool Mag 1</mag:title>

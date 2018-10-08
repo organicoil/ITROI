@@ -1,5 +1,7 @@
 package ua.nure.bookshop.parser.jaxb;
 
+import static ua.nure.bookshop.constants.PathConstants.JAXB_XML_PATH;
+
 import ua.nure.bookshop.entity.BookShop;
 import ua.nure.bookshop.parser.BookMarshaller;
 import ua.nure.bookshop.parser.Util;
@@ -26,6 +28,6 @@ public class JAXBMarshaller implements BookMarshaller {
 
     public static void main(String[] arg) throws Exception {
         BookMarshaller jaxbMarshaller = new JAXBMarshaller();
-        jaxbMarshaller.marshal(Util.createBookShop(), "src/main/resources/xml/jaxb.xml");
+        jaxbMarshaller.marshal(Util.createBookShop(), JAXB_XML_PATH);
     }
 }

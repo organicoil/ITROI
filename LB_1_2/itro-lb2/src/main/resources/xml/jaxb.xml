@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<book:bookShop xmlns:book="http://nure.ua/bookShop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<book:bookShop xmlns:book="http://nure.ua/bookShop"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://nure.ua/bookShop ../xsd/bookShop.xsd">
     <book:book id="3">
         <book:title>The Emperor's new mind</book:title>

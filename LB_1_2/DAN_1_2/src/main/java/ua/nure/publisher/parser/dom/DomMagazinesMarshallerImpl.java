@@ -60,7 +60,7 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
         Document document = documentBuilder.newDocument();
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINES_QUALIFIED_NAME);
         document.appendChild(magazineElement);
-        magazines.forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
+        magazines.getMagazines().forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
         return document;
     }
 

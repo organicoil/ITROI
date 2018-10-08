@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:ent="http://ua.nure/entity/"
-            xmlns:mag="http://ua.nure/magazine/"
-            targetNamespace="http://ua.nure/magazine/"
+            xmlns:mag="http://ua.nure/magazines/"
+            targetNamespace="http://ua.nure/magazines/"
             elementFormDefault="qualified">
 
-    <xsd:import namespace="http://ua.nure/entity/" schemaLocation="entity.xsd"/>
+    <xsd:complexType name="entity">
+        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+    </xsd:complexType>
 
     <xsd:simpleType name="price">
         <xsd:restriction base="xsd:double">
@@ -31,7 +32,7 @@
 
     <xsd:complexType name="magazine">
         <xsd:complexContent>
-            <xsd:extension base="ent:entity">
+            <xsd:extension base="mag:entity">
                 <xsd:sequence>
                     <xsd:element name="title" type="xsd:string"/>
                     <xsd:element name="description" type="xsd:string"/>

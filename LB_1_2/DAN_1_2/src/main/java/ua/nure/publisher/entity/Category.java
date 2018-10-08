@@ -1,11 +1,18 @@
 package ua.nure.publisher.entity;
 
+import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlType(name = "category")
+@XmlEnum
 public enum Category {
 
+    @XmlEnumValue("politics")
     POLITICS("politics"),
+    @XmlEnumValue("it")
     IT("it"),
+    @XmlEnumValue("sport")
     SPORT("sport");
     private final String value;
 
