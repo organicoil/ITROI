@@ -3,7 +3,7 @@ package ua.nure.publisher.parser.stax;
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_PREFIX;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
@@ -14,7 +14,7 @@ import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMET
 import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.UTF_ENCODING;
 import static ua.nure.publisher.constants.ValueConstants.UTF_ENCODING_VERSION;
-import static ua.nure.publisher.constants.ValueConstants.XSI_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.XSI_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.XSI_PREFIX;
 import static ua.nure.publisher.parser.stax.util.StaxMarshallingUtils.writeElement;
 
@@ -58,10 +58,10 @@ public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
     }
 
     private void writeMagazines(Magazines magazines, XMLStreamWriter xmlStreamWriter) throws XMLStreamException {
-        xmlStreamWriter.writeStartElement(MAGAZINES_PREFIX, MAGAZINES_TAG_NAME, MAGAZINES_NAMESPACE);
-        xmlStreamWriter.writeNamespace(MAGAZINES_PREFIX, MAGAZINES_NAMESPACE);
-        xmlStreamWriter.writeNamespace(XSI_PREFIX, XSI_NAMESPACE);
-        xmlStreamWriter.writeAttribute(XSI_PREFIX, XSI_NAMESPACE, SCHEMA_LOCATION_PARAMETER, MAGAZINES_SCHEMA_LOCATION);
+        xmlStreamWriter.writeStartElement(MAGAZINES_PREFIX, MAGAZINES_TAG_NAME, MAGAZINES_NAMESPACE_URI);
+        xmlStreamWriter.writeNamespace(MAGAZINES_PREFIX, MAGAZINES_NAMESPACE_URI);
+        xmlStreamWriter.writeNamespace(XSI_PREFIX, XSI_NAMESPACE_URI);
+        xmlStreamWriter.writeAttribute(XSI_PREFIX, XSI_NAMESPACE_URI, SCHEMA_LOCATION_PARAMETER, MAGAZINES_SCHEMA_LOCATION);
         for (Magazine magazine : magazines.getMagazines()) {
             writeMagazine(magazine, xmlStreamWriter);
         }
@@ -69,7 +69,7 @@ public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
     }
 
     private void writeMagazine(Magazine magazine, XMLStreamWriter xmlStreamWriter) throws XMLStreamException {
-        xmlStreamWriter.writeStartElement(MAGAZINES_PREFIX, MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE);
+        xmlStreamWriter.writeStartElement(MAGAZINES_PREFIX, MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE_URI);
         xmlStreamWriter.writeAttribute(ID_ATTRIBUTE, Integer.toString(magazine.getId()));
         writeElement(TITLE_TAG_NAME, magazine.getTitle(), xmlStreamWriter);
         writeElement(DESCRIPTION_TAG_NAME, magazine.getDescription(), xmlStreamWriter);

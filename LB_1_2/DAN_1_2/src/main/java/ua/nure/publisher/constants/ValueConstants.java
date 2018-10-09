@@ -14,13 +14,16 @@ public class ValueConstants {
     public static final String MAGAZINES_TAG_NAME = "magazines";
 
     public static final String MAGAZINES_PREFIX = "mag";
-    public static final String MAGAZINES_NAMESPACE = "http://ua.nure/magazines/";
+    public static final String MAGAZINES_NAMESPACE_URI = "http://ua.nure/magazines/";
     public static final String MAGAZINES_SCHEMA_LOCATION = "http://ua.nure/magazines/ ../xsd/magazines.xsd";
 
     public static final String XSI_PREFIX = "xsi";
-    public static final String XSI_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance";
+    public static final String XSI_NAMESPACE_URI = "http://www.w3.org/2001/XMLSchema-instance";
 
     public static final String SCHEMA_LOCATION_PARAMETER = "schemaLocation";
     public static final String UTF_ENCODING = "UTF-8";
     public static final String UTF_ENCODING_VERSION = "1.0";
+
+    public static final Namespace XSI_NAMESPACE = Namespace.getNamespace(XSI_PREFIX, XSI_NAMESPACE_URI);
+
 }

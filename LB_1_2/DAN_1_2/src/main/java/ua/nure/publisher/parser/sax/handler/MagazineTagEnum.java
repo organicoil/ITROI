@@ -2,7 +2,7 @@ package ua.nure.publisher.parser.sax.handler;
 
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
@@ -34,7 +34,7 @@ public enum MagazineTagEnum {
 
     MagazineTagEnum(String tagName) {
         this.tagName = tagName;
-        this.nameSpace = MAGAZINES_NAMESPACE;
+        this.nameSpace = MAGAZINES_NAMESPACE_URI;
     }
 
     public boolean isMagazines() {

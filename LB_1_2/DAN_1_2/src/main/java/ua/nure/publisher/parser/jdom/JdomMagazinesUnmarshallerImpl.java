@@ -3,7 +3,7 @@ package ua.nure.publisher.parser.jdom;
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
@@ -55,7 +55,7 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
     private static Magazine getMagazine(Element elem) {
         try {
-            Namespace namespace = Namespace.getNamespace(MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE);
+            Namespace namespace = Namespace.getNamespace(MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE_URI);
             Magazine magazine = new Magazine();
             magazine.setId(elem.getAttribute(ID_ATTRIBUTE).getIntValue());
             magazine.setTitle(elem.getChild(TITLE_TAG_NAME, namespace).getText());

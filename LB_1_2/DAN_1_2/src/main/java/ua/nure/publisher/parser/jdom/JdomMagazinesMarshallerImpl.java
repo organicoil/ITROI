@@ -3,9 +3,9 @@ package ua.nure.publisher.parser.jdom;
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
@@ -41,7 +41,7 @@ public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
     private void marshallMagazines(Magazines magazines, FileOutputStream fileOut) throws IOException {
         XMLOutputter xmlOut = new XMLOutputter(Format.getPrettyFormat());
-        Document document = new Document(new Element(MAGAZINES_TAG_NAME, MAGAZINES_NAMESPACE));
+        Document document = new Document(new Element(MAGAZINES_TAG_NAME, MAGAZINES_NAMESPACE_URI));
         document.getRootElement().addNamespaceDeclaration(XSI_NAMESPACE);
         document.getRootElement().setAttribute(SCHEMA_LOCATION_PARAMETER, MAGAZINES_SCHEMA_LOCATION, XSI_NAMESPACE);
         magazines.getMagazines().forEach((magazine) -> document.getRootElement().addContent(getBookElement(magazine)));
@@ -49,13 +49,13 @@ public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
     }
 
     private Element getBookElement(Magazine magazine) {
-        Element elem = new Element(MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE);
+        Element elem = new Element(MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE_URI);
         elem.setAttribute(ID_ATTRIBUTE, String.valueOf(magazine.getId()));
-        elem.addContent(getSimpleElement(TITLE_TAG_NAME, MAGAZINES_NAMESPACE, magazine.getTitle()));
-        elem.addContent(getSimpleElement(DESCRIPTION_TAG_NAME, MAGAZINES_NAMESPACE, magazine.getDescription()));
-        elem.addContent(getSimpleElement(PRICE_TAG_NAME, MAGAZINES_NAMESPACE, magazine.getPrice()));
-        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, MAGAZINES_NAMESPACE, magazine.getPerMonthPublishCount()));
-        elem.addContent(getSimpleElement(CATEGORY_TAG_NAME, MAGAZINES_NAMESPACE, magazine.getCategory().value()));
+        elem.addContent(getSimpleElement(TITLE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getTitle()));
+        elem.addContent(getSimpleElement(DESCRIPTION_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getDescription()));
+        elem.addContent(getSimpleElement(PRICE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getPrice()));
+        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getPerMonthPublishCount()));
+        elem.addContent(getSimpleElement(CATEGORY_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getCategory().value()));
         return elem;
     }
 }

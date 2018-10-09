@@ -3,7 +3,7 @@ package ua.nure.publisher.parser.dom;
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
@@ -69,12 +69,12 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
     private Magazine parseMagazine(Element magazineElement) {
         Magazine magazine = new Magazine();
         magazine.setId(Integer.parseInt(magazineElement.getAttribute(ID_ATTRIBUTE)));
-        magazine.setTitle(getValue(magazineElement, MAGAZINES_NAMESPACE, TITLE_TAG_NAME));
-        magazine.setDescription(getValue(magazineElement, MAGAZINES_NAMESPACE, DESCRIPTION_TAG_NAME));
-        magazine.setPrice(Double.parseDouble(getValue(magazineElement, MAGAZINES_NAMESPACE, PRICE_TAG_NAME)));
-        magazine.setPerMonthPublishCount(Integer.parseInt(getValue(magazineElement, MAGAZINES_NAMESPACE,
+        magazine.setTitle(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME));
+        magazine.setDescription(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME));
+        magazine.setPrice(Double.parseDouble(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME)));
+        magazine.setPerMonthPublishCount(Integer.parseInt(getValue(magazineElement, MAGAZINES_NAMESPACE_URI,
                 PER_MONTH_PUBLISH_COUNT_TAG_NAME)));
-        magazine.setCategory(Category.fromValue(getValue(magazineElement, MAGAZINES_NAMESPACE, CATEGORY_TAG_NAME)));
+        magazine.setCategory(Category.fromValue(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, CATEGORY_TAG_NAME)));
         return magazine;
     }
 
