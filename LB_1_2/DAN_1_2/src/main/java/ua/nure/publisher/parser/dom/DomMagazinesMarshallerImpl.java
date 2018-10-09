@@ -1,15 +1,15 @@
 package ua.nure.publisher.parser.dom;
 
 import static ua.nure.publisher.constants.PathConstants.MAGAZINES_XSD_PATH;
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleElement;
 
 import org.apache.log4j.Logger;
@@ -58,7 +58,7 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
     private Document createDocument(Magazines magazines) throws ParserConfigurationException, SAXException {
         DocumentBuilder documentBuilder = createDocumentBuilder();
         Document document = documentBuilder.newDocument();
-        Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINES_QUALIFIED_NAME);
+        Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE, MAGAZINES_TAG_NAME);
         document.appendChild(magazineElement);
         magazines.getMagazines().forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
         return document;
@@ -76,14 +76,15 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
     }
 
     private Element getMagazineElement(Magazine magazine, Document document) {
-        Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINE_QUALIFIED_NAME);
+        Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE, MAGAZINE_TAG_NAME);
         magazineElement.setAttribute(ID_ATTRIBUTE, String.valueOf(magazine.getId()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_ATTRIBUTE, magazine.getTitle()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_ATTRIBUTE, magazine.getDescription()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_ATTRIBUTE, magazine.getPrice()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
-                PER_MONTH_PUBLISH_COUNT_ATTRIBUTE, magazine.getPerMonthPublishCount()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, CATEGORY_ATTRIBUTE, magazine.getCategory().value()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE, TITLE_TAG_NAME, magazine.getTitle()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE, DESCRIPTION_TAG_NAME, magazine.getDescription()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE, PRICE_TAG_NAME, magazine.getPrice()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE,
+                PER_MONTH_PUBLISH_COUNT_TAG_NAME, magazine.getPerMonthPublishCount()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE,
+                CATEGORY_TAG_NAME, magazine.getCategory().value()));
         return magazineElement;
     }
 

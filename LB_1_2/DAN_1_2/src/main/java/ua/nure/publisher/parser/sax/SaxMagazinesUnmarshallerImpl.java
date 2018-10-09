@@ -6,7 +6,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
-import ua.nure.publisher.parser.sax.handler.StaxMagazinesHandler;
+import ua.nure.publisher.parser.sax.handler.SaxMagazinesHandler;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class SaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
     private Magazines unmarshalMagazines(String filePath) throws SAXException, IOException {
         XMLReader reader = XMLReaderFactory.createXMLReader();
-        StaxMagazinesHandler handler = new StaxMagazinesHandler();
+        SaxMagazinesHandler handler = new SaxMagazinesHandler();
         reader.setContentHandler(handler);
         reader.parse(filePath);
         return handler.getMagazines();

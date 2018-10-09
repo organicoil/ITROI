@@ -1,23 +1,23 @@
 package ua.nure.publisher.parser.sax.handler;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 public enum MagazineTagEnum {
 
-    MAGAZINES(MAGAZINES_QUALIFIED_NAME),
-    MAGAZINE(MAGAZINE_QUALIFIED_NAME),
-    TITLE(TITLE_ATTRIBUTE),
-    DESCRIPTION(DESCRIPTION_ATTRIBUTE),
-    PRICE(PRICE_ATTRIBUTE),
-    CATEGORY(CATEGORY_ATTRIBUTE),
-    PER_MONTH_PUBLISH_COUNT(PER_MONTH_PUBLISH_COUNT_ATTRIBUTE),
+    MAGAZINES(MAGAZINES_TAG_NAME),
+    MAGAZINE(MAGAZINE_TAG_NAME),
+    TITLE(TITLE_TAG_NAME),
+    DESCRIPTION(DESCRIPTION_TAG_NAME),
+    PRICE(PRICE_TAG_NAME),
+    CATEGORY(CATEGORY_TAG_NAME),
+    PER_MONTH_PUBLISH_COUNT(PER_MONTH_PUBLISH_COUNT_TAG_NAME),
     NULL("");
 
     private String tagName;
@@ -34,7 +34,7 @@ public enum MagazineTagEnum {
 
     MagazineTagEnum(String tagName) {
         this.tagName = tagName;
-        this.nameSpace = MAGAZINES_NAMESPACE_URI;
+        this.nameSpace = MAGAZINES_NAMESPACE;
     }
 
     public boolean isMagazines() {

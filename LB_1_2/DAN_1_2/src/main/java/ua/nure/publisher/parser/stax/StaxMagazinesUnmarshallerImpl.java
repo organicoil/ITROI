@@ -1,11 +1,11 @@
 package ua.nure.publisher.parser.stax;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 import org.apache.log4j.Logger;
 import ua.nure.publisher.entity.Category;
@@ -77,20 +77,20 @@ public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
     private void startElement(XMLEvent event) {
         StartElement startElement = event.asStartElement();
         String qName = startElement.getName().getLocalPart();
-        if (qName.equalsIgnoreCase(MAGAZINE_QUALIFIED_NAME)) {
+        if (qName.equalsIgnoreCase(MAGAZINE_TAG_NAME)) {
             currentMagazine = new Magazine();
             Iterator<Attribute> attributes = startElement.getAttributes();
             String id = attributes.next().getValue();
             currentMagazine.setId(Integer.parseInt(id));
-        } else if (qName.equalsIgnoreCase(TITLE_ATTRIBUTE)) {
+        } else if (qName.equalsIgnoreCase(TITLE_TAG_NAME)) {
             bTitle = true;
-        } else if (qName.equalsIgnoreCase(DESCRIPTION_ATTRIBUTE)) {
+        } else if (qName.equalsIgnoreCase(DESCRIPTION_TAG_NAME)) {
             bDescription = true;
-        } else if (qName.equalsIgnoreCase(PRICE_ATTRIBUTE)) {
+        } else if (qName.equalsIgnoreCase(PRICE_TAG_NAME)) {
             bPrice = true;
-        } else if (qName.equalsIgnoreCase(PER_MONTH_PUBLISH_COUNT_ATTRIBUTE)) {
+        } else if (qName.equalsIgnoreCase(PER_MONTH_PUBLISH_COUNT_TAG_NAME)) {
             bPerMonthPublishCount = true;
-        } else if (qName.equalsIgnoreCase(CATEGORY_ATTRIBUTE)) {
+        } else if (qName.equalsIgnoreCase(CATEGORY_TAG_NAME)) {
             bCategory = true;
         }
     }
@@ -122,7 +122,7 @@ public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
     private void endElement(XMLEvent event) {
         EndElement endElement = event.asEndElement();
         String qName = endElement.getName().getLocalPart();
-        if (qName.equalsIgnoreCase(MAGAZINE_QUALIFIED_NAME)) {
+        if (qName.equalsIgnoreCase(MAGAZINE_TAG_NAME)) {
             magazines.add(currentMagazine);
         }
     }

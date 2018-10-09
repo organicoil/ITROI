@@ -11,7 +11,7 @@ import ua.nure.publisher.entity.Magazines;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaxMagazinesHandler extends DefaultHandler {
+public class SaxMagazinesHandler extends DefaultHandler {
 
     private Magazines magazines = new Magazines();
     private Magazine currentMagazine;

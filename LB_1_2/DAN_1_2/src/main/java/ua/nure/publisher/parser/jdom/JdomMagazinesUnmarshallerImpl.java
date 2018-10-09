@@ -1,13 +1,13 @@
 package ua.nure.publisher.parser.jdom;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_QUALIFIED_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
@@ -43,7 +43,7 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
         Document doc = builder.build(filePath);
         Element bookShopElement = doc.getRootElement();
         for (Element child : bookShopElement.getChildren()) {
-            if (MAGAZINE_QUALIFIED_NAME.equals(child.getName())) {
+            if (MAGAZINE_TAG_NAME.equals(child.getName())) {
                 Magazine magazine = getMagazine(child);
                 if (magazine != null) {
                     magazines.add(magazine);
@@ -55,14 +55,14 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
     private static Magazine getMagazine(Element elem) {
         try {
-            Namespace namespace = Namespace.getNamespace(MAGAZINE_QUALIFIED_NAME, MAGAZINES_NAMESPACE_URI);
+            Namespace namespace = Namespace.getNamespace(MAGAZINE_TAG_NAME, MAGAZINES_NAMESPACE);
             Magazine magazine = new Magazine();
             magazine.setId(elem.getAttribute(ID_ATTRIBUTE).getIntValue());
-            magazine.setTitle(elem.getChild(TITLE_ATTRIBUTE, namespace).getText());
-            magazine.setDescription(elem.getChild(DESCRIPTION_ATTRIBUTE, namespace).getText());
-            magazine.setPrice(Double.parseDouble(elem.getChild(PRICE_ATTRIBUTE, namespace).getText()));
-            magazine.setPerMonthPublishCount(Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_ATTRIBUTE, namespace).getText()));
-            magazine.setCategory(Category.fromValue(elem.getChildText(CATEGORY_ATTRIBUTE, namespace)));
+            magazine.setTitle(elem.getChild(TITLE_TAG_NAME, namespace).getText());
+            magazine.setDescription(elem.getChild(DESCRIPTION_TAG_NAME, namespace).getText());
+            magazine.setPrice(Double.parseDouble(elem.getChild(PRICE_TAG_NAME, namespace).getText()));
+            magazine.setPerMonthPublishCount(Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_TAG_NAME, namespace).getText()));
+            magazine.setCategory(Category.fromValue(elem.getChildText(CATEGORY_TAG_NAME, namespace)));
             return magazine;
         } catch (Exception e) {
             e.printStackTrace();

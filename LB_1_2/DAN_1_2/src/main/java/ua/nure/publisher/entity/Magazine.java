@@ -1,6 +1,6 @@
 package ua.nure.publisher.entity;
 
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,15 +18,15 @@ import java.util.Objects;
         "category"})
 public class Magazine extends Entity {
 
-    @XmlElement(name = "title", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(name = "title", namespace = MAGAZINES_NAMESPACE)
     private String title;
-    @XmlElement(name = "description", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(name = "description", namespace = MAGAZINES_NAMESPACE)
     private String description;
-    @XmlElement(name = "price", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(name = "price", namespace = MAGAZINES_NAMESPACE)
     private double price;
-    @XmlElement(name = "perMonthPublishCount", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(name = "perMonthPublishCount", namespace = MAGAZINES_NAMESPACE)
     private int perMonthPublishCount;
-    @XmlElement(name = "category", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(name = "category", namespace = MAGAZINES_NAMESPACE)
     @XmlSchemaType(name = "string")
     private Category category;
 

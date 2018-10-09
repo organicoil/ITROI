@@ -1,6 +1,6 @@
 package ua.nure.publisher.entity;
 
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,10 +13,10 @@ import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {"magazine"})
-@XmlRootElement(name = "magazines", namespace = MAGAZINES_NAMESPACE_URI)
+@XmlRootElement(name = "magazines", namespace = MAGAZINES_NAMESPACE)
 public class Magazines {
 
-    @XmlElement(required = true, namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(required = true, namespace = MAGAZINES_NAMESPACE)
     private List<Magazine> magazine = new ArrayList<>();
 
     public List<Magazine> getMagazines() {

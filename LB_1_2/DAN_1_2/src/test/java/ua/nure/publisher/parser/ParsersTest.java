@@ -17,6 +17,7 @@ import ua.nure.publisher.parser.jaxb.JaxbMagazineUnmarshallerImpl;
 import ua.nure.publisher.parser.jdom.JdomMagazinesMarshallerImpl;
 import ua.nure.publisher.parser.jdom.JdomMagazinesUnmarshallerImpl;
 import ua.nure.publisher.parser.sax.SaxMagazinesUnmarshallerImpl;
+import ua.nure.publisher.parser.stax.StaxMagazinesMarshallerImpl;
 import ua.nure.publisher.parser.stax.StaxMagazinesUnmarshallerImpl;
 import ua.nure.publisher.parser.util.XmlValidator;
 
@@ -85,8 +86,11 @@ public class ParsersTest {
 
     @Test
     public void testStaxMarshalling() {
+        MagazinesMarshaller marshaller = new StaxMagazinesMarshallerImpl();
         MagazinesUnmarshaller unmarshaller = new StaxMagazinesUnmarshallerImpl();
 
+        marshaller.marshal(magazines, MAGAZINES_XML_TEST_PATH);
+        assertTrue(XmlValidator.validateAgainstXSD(MAGAZINES_XML_TEST_PATH, MAGAZINES_XSD_PATH));
         assertEquals(magazines, unmarshaller.unmarshal(MAGAZINES_XML_TEST_PATH));
     }
 
