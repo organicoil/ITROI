@@ -2,6 +2,8 @@
 
 *.orig
 
+*.iml
+
 *.log
 
 *.log.*
