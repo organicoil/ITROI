@@ -2,7 +2,6 @@ package ua.nure.publisher.parser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static ua.nure.publisher.constants.PathConstants.MAGAZINES_XML_TEST_PATH;
 import static ua.nure.publisher.constants.PathConstants.MAGAZINES_XSD_PATH;
 
 import org.junit.Before;
@@ -22,6 +21,9 @@ import ua.nure.publisher.parser.stax.StaxMagazinesUnmarshallerImpl;
 import ua.nure.publisher.parser.util.XmlValidator;
 
 public class ParsersTest {
+
+    private static final String TEST_RESOURCES_FOLDER_PATH = "src/test/resources";
+    private static final String MAGAZINES_XML_TEST_PATH = TEST_RESOURCES_FOLDER_PATH + "/xml/magazines.xml";
 
     private final Magazines magazines = new Magazines();
     private final Magazine magazine1 = new Magazine();

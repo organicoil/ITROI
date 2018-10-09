@@ -4,8 +4,16 @@
             targetNamespace="http://ua.nure/magazines/"
             elementFormDefault="qualified">
 
+    <xsd:simpleType name="entityId">
+        <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="-1"/>
+            <xsd:maxExclusive value="99999999"/>
+            <xsd:pattern value="[0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="entity">
-        <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+        <xsd:attribute name="id" type="mag:entityId" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="price">
@@ -33,13 +41,13 @@
     <xsd:complexType name="magazine">
         <xsd:complexContent>
             <xsd:extension base="mag:entity">
-                <xsd:sequence>
+                <xsd:all>
                     <xsd:element name="title" type="xsd:string"/>
                     <xsd:element name="description" type="xsd:string"/>
                     <xsd:element name="price" type="mag:price"/>
                     <xsd:element name="perMonthPublishCount" type="mag:perMonthPublishCount"/>
                     <xsd:element name="category" type="mag:category" default="none"/>
-                </xsd:sequence>
+                </xsd:all>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
