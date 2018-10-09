@@ -28,5 +28,4 @@ public class JaxbMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         return (Magazines) jaxbUnmarshaller.unmarshal(file);
     }
-
 }

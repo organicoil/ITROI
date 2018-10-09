@@ -9,5 +9,4 @@ public class JdomMarshallingUtils {
         element.setText(String.valueOf(value));
         return element;
     }
-
 }

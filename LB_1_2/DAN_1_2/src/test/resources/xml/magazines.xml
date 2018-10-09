@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<magazines xmlns="http://ua.nure/magazines/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ua.nure/magazines/ ../xsd/magazines.xsd">
+  <magazine id="1">
+    <title>Title1</title>
+    <description>Desc1</description>
+    <price>99.0</price>
+    <perMonthPublishCount>4</perMonthPublishCount>
+    <category>it</category>
+  </magazine>
+  <magazine id="2">
+    <title>Title2</title>
+    <description>Desc2</description>
+    <price>999.0</price>
+    <perMonthPublishCount>3</perMonthPublishCount>
+    <category>sport</category>
+  </magazine>
+</magazines>

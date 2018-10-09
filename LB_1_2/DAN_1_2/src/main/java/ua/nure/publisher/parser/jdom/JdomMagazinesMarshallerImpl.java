@@ -54,7 +54,8 @@ public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
         elem.addContent(getSimpleElement(TITLE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getTitle()));
         elem.addContent(getSimpleElement(DESCRIPTION_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getDescription()));
         elem.addContent(getSimpleElement(PRICE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getPrice()));
-        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getPerMonthPublishCount()));
+        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, MAGAZINES_NAMESPACE_URI,
+                magazine.getPerMonthPublishCount()));
         elem.addContent(getSimpleElement(CATEGORY_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getCategory().value()));
         return elem;
     }

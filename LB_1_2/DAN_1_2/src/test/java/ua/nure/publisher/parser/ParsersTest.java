@@ -30,7 +30,7 @@ public class ParsersTest {
     private final Magazine magazine2 = new Magazine();
 
     @Before
-    public void init(){
+    public void init() {
         magazine1.setId(1);
         magazine1.setTitle("Title1");
         magazine1.setDescription("Desc1");
@@ -95,5 +95,4 @@ public class ParsersTest {
         assertTrue(XmlValidator.validateAgainstXSD(MAGAZINES_XML_TEST_PATH, MAGAZINES_XSD_PATH));
         assertEquals(magazines, unmarshaller.unmarshal(MAGAZINES_XML_TEST_PATH));
     }
-
 }

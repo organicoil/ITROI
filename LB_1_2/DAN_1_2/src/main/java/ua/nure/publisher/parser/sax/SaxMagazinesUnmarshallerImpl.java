@@ -31,5 +31,4 @@ public class SaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
         reader.parse(filePath);
         return handler.getMagazines();
     }
-
 }

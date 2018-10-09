@@ -39,13 +39,14 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
     public void marshal(Magazines magazines, String filePath) {
         try {
-           marshalMagazines(magazines, filePath);
+            marshalMagazines(magazines, filePath);
         } catch (ParserConfigurationException | TransformerException | SAXException e) {
             LOG.error("Failed to marshal magazines", e);
         }
     }
 
-    private void marshalMagazines(Magazines magazines, String filePath) throws ParserConfigurationException, SAXException, TransformerException {
+    private void marshalMagazines(Magazines magazines, String filePath)
+            throws ParserConfigurationException, SAXException, TransformerException {
         Document document = createDocument(magazines);
         DOMSource domSource = new DOMSource(document);
         StreamResult streamResult = new StreamResult(filePath);
@@ -60,7 +61,8 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
         Document document = documentBuilder.newDocument();
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINES_TAG_NAME);
         document.appendChild(magazineElement);
-        magazines.getMagazines().forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
+        magazines.getMagazines()
+                .forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
         return document;
     }
 
@@ -78,14 +80,16 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
     private Element getMagazineElement(Magazine magazine, Document document) {
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINE_TAG_NAME);
         magazineElement.setAttribute(ID_ATTRIBUTE, String.valueOf(magazine.getId()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME, magazine.getTitle()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME, magazine.getDescription()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME, magazine.getPrice()));
+        magazineElement
+                .appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME, magazine.getTitle()));
+        magazineElement.appendChild(
+                getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME, magazine.getDescription()));
+        magazineElement
+                .appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME, magazine.getPrice()));
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
                 PER_MONTH_PUBLISH_COUNT_TAG_NAME, magazine.getPerMonthPublishCount()));
         magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
                 CATEGORY_TAG_NAME, magazine.getCategory().value()));
         return magazineElement;
     }
-
 }

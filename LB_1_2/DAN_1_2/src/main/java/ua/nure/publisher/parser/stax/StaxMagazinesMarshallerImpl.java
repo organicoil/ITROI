@@ -61,7 +61,8 @@ public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
         xmlStreamWriter.writeStartElement(MAGAZINES_PREFIX, MAGAZINES_TAG_NAME, MAGAZINES_NAMESPACE_URI);
         xmlStreamWriter.writeNamespace(MAGAZINES_PREFIX, MAGAZINES_NAMESPACE_URI);
         xmlStreamWriter.writeNamespace(XSI_PREFIX, XSI_NAMESPACE_URI);
-        xmlStreamWriter.writeAttribute(XSI_PREFIX, XSI_NAMESPACE_URI, SCHEMA_LOCATION_PARAMETER, MAGAZINES_SCHEMA_LOCATION);
+        xmlStreamWriter
+                .writeAttribute(XSI_PREFIX, XSI_NAMESPACE_URI, SCHEMA_LOCATION_PARAMETER, MAGAZINES_SCHEMA_LOCATION);
         for (Magazine magazine : magazines.getMagazines()) {
             writeMagazine(magazine, xmlStreamWriter);
         }
@@ -74,7 +75,8 @@ public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
         writeElement(TITLE_TAG_NAME, magazine.getTitle(), xmlStreamWriter);
         writeElement(DESCRIPTION_TAG_NAME, magazine.getDescription(), xmlStreamWriter);
         writeElement(PRICE_TAG_NAME, Double.toString(magazine.getPrice()), xmlStreamWriter);
-        writeElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, Integer.toString(magazine.getPerMonthPublishCount()), xmlStreamWriter);
+        writeElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, Integer.toString(magazine.getPerMonthPublishCount()),
+                xmlStreamWriter);
         writeElement(CATEGORY_TAG_NAME, magazine.getCategory().value(), xmlStreamWriter);
         xmlStreamWriter.writeEndElement();
     }

@@ -38,7 +38,8 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
         }
     }
 
-    private Magazines unmarshalMagazines(String filePath) throws ParserConfigurationException, IOException, SAXException {
+    private Magazines unmarshalMagazines(String filePath)
+            throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder documentBuilder = factory.newDocumentBuilder();
@@ -77,6 +78,5 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
         magazine.setCategory(Category.fromValue(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, CATEGORY_TAG_NAME)));
         return magazine;
     }
-
 }
 

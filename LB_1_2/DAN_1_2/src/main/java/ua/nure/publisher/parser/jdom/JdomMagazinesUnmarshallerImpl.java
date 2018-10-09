@@ -61,7 +61,8 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
             magazine.setTitle(elem.getChild(TITLE_TAG_NAME, namespace).getText());
             magazine.setDescription(elem.getChild(DESCRIPTION_TAG_NAME, namespace).getText());
             magazine.setPrice(Double.parseDouble(elem.getChild(PRICE_TAG_NAME, namespace).getText()));
-            magazine.setPerMonthPublishCount(Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_TAG_NAME, namespace).getText()));
+            magazine.setPerMonthPublishCount(
+                    Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_TAG_NAME, namespace).getText()));
             magazine.setCategory(Category.fromValue(elem.getChildText(CATEGORY_TAG_NAME, namespace)));
             return magazine;
         } catch (Exception e) {
@@ -69,5 +70,4 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
             return null;
         }
     }
-
 }

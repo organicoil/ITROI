@@ -25,5 +25,4 @@ public class ValueConstants {
     public static final String UTF_ENCODING_VERSION = "1.0";
 
     public static final Namespace XSI_NAMESPACE = Namespace.getNamespace(XSI_PREFIX, XSI_NAMESPACE_URI);
-
 }

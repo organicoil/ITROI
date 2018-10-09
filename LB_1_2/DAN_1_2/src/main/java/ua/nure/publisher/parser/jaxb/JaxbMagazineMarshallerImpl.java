@@ -19,7 +19,7 @@ public class JaxbMagazineMarshallerImpl implements MagazinesMarshaller {
 
     public void marshal(Magazines magazines, String filePath) {
         try (OutputStream outputStream = new FileOutputStream(filePath)) {
-           marshalMagazines(magazines, outputStream);
+            marshalMagazines(magazines, outputStream);
         } catch (JAXBException | IOException e) {
             LOG.error("Failed to marshal magazines", e);
         }
@@ -32,5 +32,4 @@ public class JaxbMagazineMarshallerImpl implements MagazinesMarshaller {
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(magazines, outputStream);
     }
-
 }

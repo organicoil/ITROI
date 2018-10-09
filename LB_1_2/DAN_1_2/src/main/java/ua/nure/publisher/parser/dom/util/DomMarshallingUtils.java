@@ -10,5 +10,4 @@ public class DomMarshallingUtils {
         element.setTextContent(String.valueOf(value));
         return element;
     }
-
 }

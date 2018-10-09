@@ -50,5 +50,4 @@ public class Magazines {
                 "magazine=" + magazine +
                 '}';
     }
-
 }
