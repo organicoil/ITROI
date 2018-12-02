@@ -8,7 +8,9 @@
         <mag:title>Cool Mag 1</mag:title>
         <mag:description>-</mag:description>
         <mag:price>999</mag:price>
-        <mag:perMonthPublishCount>2</mag:perMonthPublishCount>
+        <mag:publishing>
+            <mag:perMonthPublishCount>2</mag:perMonthPublishCount>
+        </mag:publishing>
         <mag:category>it</mag:category>
     </mag:magazine>
 
@@ -16,7 +18,9 @@
         <mag:title>Cool Mag 2</mag:title>
         <mag:description>-</mag:description>
         <mag:price>123</mag:price>
-        <mag:perMonthPublishCount>3</mag:perMonthPublishCount>
+        <mag:publishing>
+            <mag:perMonthPublishCount>3</mag:perMonthPublishCount>
+        </mag:publishing>
         <mag:category>politics</mag:category>
     </mag:magazine>
 
@@ -24,7 +28,9 @@
         <mag:title>Cool Mag 3</mag:title>
         <mag:description>-</mag:description>
         <mag:price>321</mag:price>
-        <mag:perMonthPublishCount>15</mag:perMonthPublishCount>
+        <mag:publishing>
+            <mag:publishType>daily</mag:publishType>
+        </mag:publishing>
         <mag:category>sport</mag:category>
     </mag:magazine>
 
