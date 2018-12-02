@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.dom;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -34,7 +35,7 @@ import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleEle
 
 public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = Logger.getLogger(DomMagazinesMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DomMagazinesMarshallerImpl.class);
 
     public void marshal(Magazines magazines, String filePath) {
         try {

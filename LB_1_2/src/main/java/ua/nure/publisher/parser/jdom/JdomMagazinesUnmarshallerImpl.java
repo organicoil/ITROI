@@ -1,12 +1,13 @@
 package ua.nure.publisher.parser.jdom;
 
-import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.input.sax.XMLReaders;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Category;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
@@ -24,12 +25,14 @@ import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
-    private static final Logger LOG = Logger.getLogger(JdomMagazinesUnmarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(JdomMagazinesUnmarshallerImpl.class);
 
     @Override
     public Magazines unmarshal(String filePath) {
         try {
-            return unmarshalMagazines(filePath);
+            Magazines magazines = unmarshalMagazines(filePath);
+            LOG.debug("Parsed magazines: {}", magazines);
+            return magazines;
         } catch (JDOMException | IOException e) {
             LOG.error("Failed to unmarshal magazines");
             return new Magazines();

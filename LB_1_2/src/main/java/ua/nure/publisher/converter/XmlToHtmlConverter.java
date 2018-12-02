@@ -1,6 +1,7 @@
 package ua.nure.publisher.converter;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.parser.stax.StaxMagazinesMarshallerImpl;
 
 import javax.xml.transform.Source;
@@ -16,7 +17,7 @@ import java.io.StringWriter;
 
 public class XmlToHtmlConverter {
 
-    private static final Logger LOG = Logger.getLogger(StaxMagazinesMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StaxMagazinesMarshallerImpl.class);
 
     public void convertXMLToHTML(String xmlPath, String xsltPath, String htmlOutputPath) {
         try (FileWriter fileWriter = new FileWriter(htmlOutputPath)) {

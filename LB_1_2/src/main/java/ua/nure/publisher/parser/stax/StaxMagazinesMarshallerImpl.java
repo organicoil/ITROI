@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.stax;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
@@ -30,7 +31,7 @@ import static ua.nure.publisher.parser.stax.util.StaxMarshallingUtils.writeEleme
 
 public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = Logger.getLogger(StaxMagazinesMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StaxMagazinesMarshallerImpl.class);
 
     @Override
     public void marshal(Magazines magazines, String filePath) {

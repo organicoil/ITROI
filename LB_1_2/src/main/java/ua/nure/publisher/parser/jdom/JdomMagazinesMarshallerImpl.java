@@ -1,10 +1,11 @@
 package ua.nure.publisher.parser.jdom;
 
-import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
@@ -27,7 +28,7 @@ import static ua.nure.publisher.parser.jdom.util.JdomMarshallingUtils.getSimpleE
 
 public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = Logger.getLogger(JdomMagazinesMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(JdomMagazinesMarshallerImpl.class);
 
     @Override
     public void marshal(Magazines magazines, String filePath) {
