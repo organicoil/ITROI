@@ -2,9 +2,9 @@ package ua.nure.publisher.parser.stax;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.nure.publisher.entity.Category;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Category;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 import ua.nure.publisher.parser.sax.SaxMagazinesUnmarshallerImpl;
 
@@ -24,7 +24,6 @@ import java.util.Iterator;
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 

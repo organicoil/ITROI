@@ -1,5 +1,5 @@
 
-package ua.nure.publisher.entity;
+package ua.nure.publisher.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +28,7 @@ import java.util.Objects;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "magazines", propOrder = {
         "magazine"
 })
 @XmlRootElement(name = "magazines", namespace = "http://ua.nure/magazines/")

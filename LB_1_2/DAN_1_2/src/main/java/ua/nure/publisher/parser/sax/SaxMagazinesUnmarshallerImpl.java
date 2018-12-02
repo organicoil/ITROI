@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 import ua.nure.publisher.parser.sax.handler.SaxMagazinesHandler;
 

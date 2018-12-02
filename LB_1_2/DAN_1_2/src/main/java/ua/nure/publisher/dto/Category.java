@@ -1,11 +1,9 @@
 
-package ua.nure.publisher.entity;
+package ua.nure.publisher.dto;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 
 /**
  * <p>Java class for category.
@@ -23,7 +21,7 @@ import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
  * &lt;/simpleType>
  * </pre>
  */
-@XmlType(name = CATEGORY_TAG_NAME, namespace = "http://ua.nure/magazines/")
+@XmlType(name = "category", namespace = "http://ua.nure/magazines/")
 @XmlEnum
 public enum Category {
 

@@ -2,7 +2,7 @@ package ua.nure.publisher.parser.jaxb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 
 import javax.xml.bind.JAXBContext;

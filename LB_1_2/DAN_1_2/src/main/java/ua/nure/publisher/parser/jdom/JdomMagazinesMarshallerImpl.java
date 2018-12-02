@@ -6,8 +6,8 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
 
 import java.io.FileOutputStream;

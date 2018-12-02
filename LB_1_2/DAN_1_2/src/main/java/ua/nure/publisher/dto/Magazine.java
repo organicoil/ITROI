@@ -1,5 +1,5 @@
 
-package ua.nure.publisher.entity;
+package ua.nure.publisher.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,9 +8,6 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import java.util.Objects;
-
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 /**
  * <p>Java class for magazine complex type.
@@ -34,8 +31,8 @@ import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = MAGAZINE_TAG_NAME, namespace = "http://ua.nure/magazines/", propOrder = {
-        TITLE_TAG_NAME,
+@XmlType(name = "magazine", namespace = "http://ua.nure/magazines/", propOrder = {
+        "title",
         "description",
         "price",
         "publishing",
