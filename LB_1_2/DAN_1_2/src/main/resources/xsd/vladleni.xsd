@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="id">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="role">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="payer"/>
+            <xs:enumeration value="recipient"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paymentStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="done"/>
+            <xs:enumeration value="in progress"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="fio">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]?[a-z]+ [A-Za-z].[ ]?[A-Za-z]."/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="currencyVal">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="payments">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="payment" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="client">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="role" name="role" use="required"/>
+                                            <xs:attribute type="id" name="id" use="required"/>
+                                            <xs:attribute type="fio" name="name" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="client">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="role" name="role" use="required"/>
+                                            <xs:attribute type="id" name="id" use="required"/>
+                                            <xs:attribute type="fio" name="name" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="amount">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="currencyVal" >
+                                            <xs:attribute name="currency" default="hryvnia">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:enumeration value="pounds"/>
+                                                        <xs:enumeration value="euros"/>
+                                                        <xs:enumeration value="dollars"/>
+                                                        <xs:enumeration value="ruble"/>
+                                                        <xs:enumeration value="hryvnia"/>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Info">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element name="status" type="paymentStatus"/>
+                                        <xs:element name="PError">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="code" type="xs:integer"/>
+                                                    <xs:element name="shortMsg" type="xs:string"/>
+                                                    <xs:element name="additionalMsg" type="xs:string" minOccurs="0"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                        <xs:attribute type="xs:dateTime" name="dateTime" use="required"/>
+                        <xs:attribute type="id" name="id" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:date" name="fromDate"/>
+            <xs:attribute type="xs:date" name="toDate"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

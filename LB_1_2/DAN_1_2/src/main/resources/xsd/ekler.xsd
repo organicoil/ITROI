@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="games" type="gameType"/>
+    <xs:complexType name="gameType">
+        <xs:sequence>
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Assassin's Creed Odyssey"/>
+                        <xs:enumeration value="Call of Duty: Black Ops 4"/>
+                        <xs:enumeration value="Destiny 2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="studio">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="2"/>
+                        <xs:pattern value="( [A-Z] [a-z] )*"/>
+                        <xs:enumeration value="Ubisoft"/>
+                        <xs:enumeration value="Activision"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="year">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:enumeration value="2018-10-05"/>
+                        <xs:enumeration value="2018-12-10"/>
+                        <xs:enumeration value="2017-09-06"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="genre">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Action, RPG"/>
+                        <xs:enumeration value="Royal Battle, Action, Shooter, Royal Battle"/>
+                        <xs:enumeration value="Action, Shooter, Science-fiction"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="platform">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows"/>
+                        <xs:enumeration value="PlayStation 4, Xbox One, Windows"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="series">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Assassin’s Creed"/>
+                        <xs:enumeration value="Call of Duty"/>
+                        <xs:enumeration value="Destiny"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="engine">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Anvil engine"/>
+                        <xs:enumeration value="Modified IW 3.0"/>
+                        <xs:enumeration value="Tiger Engine"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="price">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:fractionDigits value="3"/>
+                        <xs:minInclusive value="1"/>
+                        <xs:maxExclusive value="999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="quantity">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:totalDigits value="5"/>
+                        <xs:minExclusive value="1"/>
+                        <xs:maxExclusive value="10000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="promocode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="8"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="rating">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element name="Awesome" type="xs:string"/>
+                        <xs:element name="Great" type="xs:string"/>
+                        <xs:element name="Good" type="xs:string"/>
+                        <xs:element name="Normal" type="xs:string"/>
+                        <xs:element name="Bad" type="xs:string"/>
+                        <xs:element name="Awful" type="xs:string"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="producer">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="firstname" type="xs:string"/>
+                        <xs:element name="lastname" type="xs:string"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
