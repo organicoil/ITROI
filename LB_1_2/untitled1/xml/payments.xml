@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="payments.xsl"?>
+<payments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="payments.xsd"
+		  fromDate="2002-09-24" toDate="2003-09-29">
+
+    <payment dateTime="2002-05-30T09:00:00" id="90">
+        <client role="recipient" id="8888823" name="Parechyn V. P."/>
+        <amount currency="dollars">100.10</amount>
+        <client role="payer" id="24" name="Parechyn V. P."/>
+        <Info>
+            <status>in progress</status>
+        </Info>
+    </payment>
+
+    <payment dateTime="2002-05-30T09:00:00" id="90">
+        <client role="recipient" id="88823" name="Parechyn V. P."/>
+        <amount currency="hryvnia">100.10</amount>
+        <client role="payer" id="24" name="Parecyn V. P."/>
+        <Info>
+            <PError>
+                <code>123</code>
+                <shortMsg>wqeqwe</shortMsg>
+                <additionalMsg>OQWid jqw owjod oqiw dqwd q</additionalMsg>
+            </PError>
+        </Info>
+    </payment>
+
+</payments>
