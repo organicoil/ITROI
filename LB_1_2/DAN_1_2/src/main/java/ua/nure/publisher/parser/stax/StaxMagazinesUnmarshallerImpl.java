@@ -1,12 +1,5 @@
 package ua.nure.publisher.parser.stax;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
-
 import org.apache.log4j.Logger;
 import ua.nure.publisher.entity.Category;
 import ua.nure.publisher.entity.Magazine;
@@ -26,6 +19,13 @@ import javax.xml.stream.events.XMLEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Iterator;
+
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
@@ -108,10 +108,6 @@ public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
         if (bPrice) {
             currentMagazine.setPrice(Double.parseDouble(characters.getData()));
             bPrice = false;
-        }
-        if (bPerMonthPublishCount) {
-            currentMagazine.setPerMonthPublishCount(Integer.parseInt(characters.getData()));
-            bPerMonthPublishCount = false;
         }
         if (bCategory) {
             currentMagazine.setCategory(Category.fromValue(characters.getData()));

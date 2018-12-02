@@ -49,7 +49,7 @@
     <xsd:complexType name="publishing">
         <xsd:choice>
             <xsd:element name="perMonthPublishCount" type="mag:perMonthPublishCount"/>
-            <xsd:element name="publishType"/>
+            <xsd:element name="publishType" type="mag:publishType"/>
         </xsd:choice>
     </xsd:complexType>
 
@@ -69,7 +69,7 @@
                     <xsd:element name="title" type="mag:title"/>
                     <xsd:element name="description" type="xsd:string"/>
                     <xsd:element name="price" type="mag:price"/>
-                    <xsd:element name="publishing" type="mag:publishing"/>
+                    <xsd:element name="publishing" type="mag:publishing" minOccurs="0"/>
                     <xsd:element name="category" type="mag:category" default="none"/>
                 </xsd:all>
             </xsd:extension>

@@ -1,19 +1,5 @@
 package ua.nure.publisher.parser.jdom;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMETER;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.XSI_NAMESPACE;
-import static ua.nure.publisher.parser.jdom.util.JdomMarshallingUtils.getSimpleElement;
-
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -25,6 +11,19 @@ import ua.nure.publisher.parser.MagazinesMarshaller;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMETER;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.XSI_NAMESPACE;
+import static ua.nure.publisher.parser.jdom.util.JdomMarshallingUtils.getSimpleElement;
 
 public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
@@ -54,8 +53,6 @@ public class JdomMagazinesMarshallerImpl implements MagazinesMarshaller {
         elem.addContent(getSimpleElement(TITLE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getTitle()));
         elem.addContent(getSimpleElement(DESCRIPTION_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getDescription()));
         elem.addContent(getSimpleElement(PRICE_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getPrice()));
-        elem.addContent(getSimpleElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, MAGAZINES_NAMESPACE_URI,
-                magazine.getPerMonthPublishCount()));
         elem.addContent(getSimpleElement(CATEGORY_TAG_NAME, MAGAZINES_NAMESPACE_URI, magazine.getCategory().value()));
         return elem;
     }

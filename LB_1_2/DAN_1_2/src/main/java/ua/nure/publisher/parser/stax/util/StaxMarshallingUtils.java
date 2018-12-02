@@ -1,9 +1,9 @@
 package ua.nure.publisher.parser.stax.util;
 
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
+
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
 
 public class StaxMarshallingUtils {
 

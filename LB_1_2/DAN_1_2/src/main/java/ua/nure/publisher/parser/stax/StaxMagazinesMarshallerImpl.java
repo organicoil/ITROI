@@ -1,5 +1,16 @@
 package ua.nure.publisher.parser.stax;
 
+import org.apache.log4j.Logger;
+import ua.nure.publisher.entity.Magazine;
+import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.parser.MagazinesMarshaller;
+
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
@@ -17,17 +28,6 @@ import static ua.nure.publisher.constants.ValueConstants.UTF_ENCODING_VERSION;
 import static ua.nure.publisher.constants.ValueConstants.XSI_NAMESPACE_URI;
 import static ua.nure.publisher.constants.ValueConstants.XSI_PREFIX;
 import static ua.nure.publisher.parser.stax.util.StaxMarshallingUtils.writeElement;
-
-import org.apache.log4j.Logger;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
-import ua.nure.publisher.parser.MagazinesMarshaller;
-
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
 
@@ -75,8 +75,6 @@ public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
         writeElement(TITLE_TAG_NAME, magazine.getTitle(), xmlStreamWriter);
         writeElement(DESCRIPTION_TAG_NAME, magazine.getDescription(), xmlStreamWriter);
         writeElement(PRICE_TAG_NAME, Double.toString(magazine.getPrice()), xmlStreamWriter);
-        writeElement(PER_MONTH_PUBLISH_COUNT_TAG_NAME, Integer.toString(magazine.getPerMonthPublishCount()),
-                xmlStreamWriter);
         writeElement(CATEGORY_TAG_NAME, magazine.getCategory().value(), xmlStreamWriter);
         xmlStreamWriter.writeEndElement();
     }

@@ -1,7 +1,5 @@
 package ua.nure.publisher.parser.sax.handler;
 
-import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import ua.nure.publisher.entity.Category;
@@ -10,6 +8,8 @@ import ua.nure.publisher.entity.Magazines;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
 
 public class SaxMagazinesHandler extends DefaultHandler {
 
@@ -62,10 +62,6 @@ public class SaxMagazinesHandler extends DefaultHandler {
             }
             case PRICE: {
                 currentMagazine.setPrice(Double.parseDouble(str));
-                break;
-            }
-            case PER_MONTH_PUBLISH_COUNT: {
-                currentMagazine.setPerMonthPublishCount(Integer.parseInt(str));
                 break;
             }
             case CATEGORY: {

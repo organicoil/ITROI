@@ -4,18 +4,12 @@
     <title>Title1</title>
     <description>Desc1</description>
     <price>99.0</price>
-    <publishing>
-      <perMonthPublishCount>4</perMonthPublishCount>
-    </publishing>
     <category>it</category>
   </magazine>
   <magazine id="2">
     <title>Title2</title>
     <description>Desc2</description>
     <price>999.0</price>
-    <publishing>
-      <perMonthPublishCount>3</perMonthPublishCount>
-    </publishing>
     <category>sport</category>
   </magazine>
 </magazines>

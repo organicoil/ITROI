@@ -1,14 +1,5 @@
 package ua.nure.publisher.parser.jdom;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
-
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -22,6 +13,14 @@ import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 
 import java.io.IOException;
+
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
@@ -61,8 +60,6 @@ public class JdomMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
             magazine.setTitle(elem.getChild(TITLE_TAG_NAME, namespace).getText());
             magazine.setDescription(elem.getChild(DESCRIPTION_TAG_NAME, namespace).getText());
             magazine.setPrice(Double.parseDouble(elem.getChild(PRICE_TAG_NAME, namespace).getText()));
-            magazine.setPerMonthPublishCount(
-                    Integer.parseInt(elem.getChild(PER_MONTH_PUBLISH_COUNT_TAG_NAME, namespace).getText()));
             magazine.setCategory(Category.fromValue(elem.getChildText(CATEGORY_TAG_NAME, namespace)));
             return magazine;
         } catch (Exception e) {

@@ -1,7 +1,5 @@
 package ua.nure.publisher.parser.jaxb;
 
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
-
 import org.apache.log4j.Logger;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
@@ -12,6 +10,8 @@ import javax.xml.bind.Marshaller;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
 
 public class JaxbMagazineMarshallerImpl implements MagazinesMarshaller {
 

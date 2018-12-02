@@ -1,14 +1,13 @@
 
-package ua.nure.publisher.entity.generated;
+package ua.nure.publisher.entity;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * <p>Java class for publishType.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -20,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlType(name = "publishType", namespace = "http://ua.nure/magazines/")
 @XmlEnum
@@ -43,7 +41,7 @@ public enum PublishType {
     }
 
     public static PublishType fromValue(String v) {
-        for (PublishType c: PublishType.values()) {
+        for (PublishType c : PublishType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

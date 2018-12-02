@@ -1,17 +1,5 @@
 package ua.nure.publisher.parser.dom;
 
-import static ua.nure.publisher.constants.PathConstants.MAGAZINES_XSD_PATH;
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
-import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleElement;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -33,6 +21,17 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
 
+import static ua.nure.publisher.constants.PathConstants.MAGAZINES_XSD_PATH;
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
+import static ua.nure.publisher.parser.dom.util.DomMarshallingUtils.getSimpleElement;
+
 public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
 
     private static final Logger LOG = Logger.getLogger(DomMagazinesMarshallerImpl.class);
@@ -45,8 +44,7 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
         }
     }
 
-    private void marshalMagazines(Magazines magazines, String filePath)
-            throws ParserConfigurationException, SAXException, TransformerException {
+    private void marshalMagazines(Magazines magazines, String filePath) throws ParserConfigurationException, SAXException, TransformerException {
         Document document = createDocument(magazines);
         DOMSource domSource = new DOMSource(document);
         StreamResult streamResult = new StreamResult(filePath);
@@ -61,8 +59,7 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
         Document document = documentBuilder.newDocument();
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINES_TAG_NAME);
         document.appendChild(magazineElement);
-        magazines.getMagazines()
-                .forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
+        magazines.getMagazines().forEach(magazine -> magazineElement.appendChild(getMagazineElement(magazine, document)));
         return document;
     }
 
@@ -80,16 +77,10 @@ public class DomMagazinesMarshallerImpl implements MagazinesMarshaller {
     private Element getMagazineElement(Magazine magazine, Document document) {
         Element magazineElement = document.createElementNS(MAGAZINES_NAMESPACE_URI, MAGAZINE_TAG_NAME);
         magazineElement.setAttribute(ID_ATTRIBUTE, String.valueOf(magazine.getId()));
-        magazineElement
-                .appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME, magazine.getTitle()));
-        magazineElement.appendChild(
-                getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME, magazine.getDescription()));
-        magazineElement
-                .appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME, magazine.getPrice()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
-                PER_MONTH_PUBLISH_COUNT_TAG_NAME, magazine.getPerMonthPublishCount()));
-        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI,
-                CATEGORY_TAG_NAME, magazine.getCategory().value()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME, magazine.getTitle()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME, magazine.getDescription()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME, magazine.getPrice()));
+        magazineElement.appendChild(getSimpleElement(document, MAGAZINES_NAMESPACE_URI, CATEGORY_TAG_NAME, magazine.getCategory().value()));
         return magazineElement;
     }
 }

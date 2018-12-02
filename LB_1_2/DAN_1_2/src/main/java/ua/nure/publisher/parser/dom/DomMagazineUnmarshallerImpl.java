@@ -1,14 +1,5 @@
 package ua.nure.publisher.parser.dom;
 
-import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
-import static ua.nure.publisher.parser.dom.util.DomUnmarshallingUtils.getValue;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -24,6 +15,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+
+import static ua.nure.publisher.constants.ValueConstants.CATEGORY_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.DESCRIPTION_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.ID_ATTRIBUTE;
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
+import static ua.nure.publisher.parser.dom.util.DomUnmarshallingUtils.getValue;
 
 public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
 
@@ -73,8 +72,6 @@ public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
         magazine.setTitle(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, TITLE_TAG_NAME));
         magazine.setDescription(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, DESCRIPTION_TAG_NAME));
         magazine.setPrice(Double.parseDouble(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, PRICE_TAG_NAME)));
-        magazine.setPerMonthPublishCount(Integer.parseInt(getValue(magazineElement, MAGAZINES_NAMESPACE_URI,
-                PER_MONTH_PUBLISH_COUNT_TAG_NAME)));
         magazine.setCategory(Category.fromValue(getValue(magazineElement, MAGAZINES_NAMESPACE_URI, CATEGORY_TAG_NAME)));
         return magazine;
     }

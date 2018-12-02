@@ -1,96 +1,175 @@
-package ua.nure.publisher.entity;
 
-import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_NAMESPACE_URI;
+package ua.nure.publisher.entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+
 import java.util.Objects;
 
+import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
+import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
+
+/**
+ * <p>Java class for magazine complex type.
+ *
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ *
+ * <pre>
+ * &lt;complexType name="magazine">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://ua.nure/magazines/}entity">
+ *       &lt;all>
+ *         &lt;element name="title" type="{http://ua.nure/magazines/}title"/>
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="price" type="{http://ua.nure/magazines/}price"/>
+ *         &lt;element name="publishing" type="{http://ua.nure/magazines/}publishing"/>
+ *         &lt;element name="category" type="{http://ua.nure/magazines/}category"/>
+ *       &lt;/all>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "magazine", propOrder = {
-        "title",
+@XmlType(name = MAGAZINE_TAG_NAME, namespace = "http://ua.nure/magazines/", propOrder = {
+        TITLE_TAG_NAME,
         "description",
         "price",
-        "perMonthPublishCount",
-        "category"})
-public class Magazine extends Entity {
+        "publishing",
+        "category"
+})
+public class Magazine
+        extends Entity {
 
-    @XmlElement(name = "title", namespace = MAGAZINES_NAMESPACE_URI)
-    private String title;
-    @XmlElement(name = "description", namespace = MAGAZINES_NAMESPACE_URI)
-    private String description;
-    @XmlElement(name = "price", namespace = MAGAZINES_NAMESPACE_URI)
-    private double price;
-    @XmlElement(name = "perMonthPublishCount", namespace = MAGAZINES_NAMESPACE_URI)
-    private int perMonthPublishCount;
-    @XmlElement(name = "category", namespace = MAGAZINES_NAMESPACE_URI)
+    @XmlElement(namespace = "http://ua.nure/magazines/", required = true)
+    protected String title;
+    @XmlElement(namespace = "http://ua.nure/magazines/", required = true)
+    protected String description;
+    @XmlElement(namespace = "http://ua.nure/magazines/", required = true)
+    protected Double price;
+    @XmlElement(namespace = "http://ua.nure/magazines/", required = true)
+    protected Publishing publishing;
+    @XmlElement(namespace = "http://ua.nure/magazines/", required = true, defaultValue = "none")
     @XmlSchemaType(name = "string")
-    private Category category;
+    protected Category category;
 
+    /**
+     * Gets the value of the title property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * Sets the value of the title property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setTitle(String value) {
+        this.title = value;
     }
 
+    /**
+     * Gets the value of the description property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * Sets the value of the description property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setDescription(String value) {
+        this.description = value;
     }
 
-    public double getPrice() {
+    /**
+     * Gets the value of the price property.
+     *
+     * @return possible object is
+     * {@link Double }
+     */
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    /**
+     * Sets the value of the price property.
+     *
+     * @param value allowed object is
+     *              {@link Double }
+     */
+    public void setPrice(Double value) {
+        this.price = value;
     }
 
-    public int getPerMonthPublishCount() {
-        return perMonthPublishCount;
+    /**
+     * Gets the value of the publishing property.
+     *
+     * @return possible object is
+     * {@link Publishing }
+     */
+    public Publishing getPublishing() {
+        return publishing;
     }
 
-    public void setPerMonthPublishCount(int perMonthPublishCount) {
-        this.perMonthPublishCount = perMonthPublishCount;
+    /**
+     * Sets the value of the publishing property.
+     *
+     * @param value allowed object is
+     *              {@link Publishing }
+     */
+    public void setPublishing(Publishing value) {
+        this.publishing = value;
     }
 
+    /**
+     * Gets the value of the category property.
+     *
+     * @return possible object is
+     * {@link Category }
+     */
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    /**
+     * Sets the value of the category property.
+     *
+     * @param value allowed object is
+     *              {@link Category }
+     */
+    public void setCategory(Category value) {
+        this.category = value;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Magazine)) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Magazine magazine = (Magazine) o;
-        return Double.compare(magazine.getPrice(), getPrice()) == 0 &&
-                getId() == magazine.getId() &&
-                getPerMonthPublishCount() == magazine.getPerMonthPublishCount() &&
-                Objects.equals(getTitle(), magazine.getTitle()) &&
-                Objects.equals(getDescription(), magazine.getDescription()) &&
-                getCategory() == magazine.getCategory();
+        return Objects.equals(title, magazine.title) &&
+                Objects.equals(description, magazine.description) &&
+                Objects.equals(price, magazine.price) &&
+                category == magazine.category;
     }
 
     @Override
     public int hashCode() {
-        return Objects
-                .hash(getId(), getTitle(), getDescription(), getPrice(), getPerMonthPublishCount(), getCategory());
+        return Objects.hash(getId(), getTitle(), getDescription(), getPrice(), getCategory());
     }
 
     @Override
@@ -100,7 +179,6 @@ public class Magazine extends Entity {
                 "title='" + getTitle() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", price=" + getPrice() +
-                ", perMonthPublishCount=" + getPerMonthPublishCount() +
                 ", category=" + getCategory() +
                 '}';
     }
