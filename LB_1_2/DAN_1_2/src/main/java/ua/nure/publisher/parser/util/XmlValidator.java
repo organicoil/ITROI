@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.util;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -13,7 +14,7 @@ import java.io.IOException;
 
 public class XmlValidator {
 
-    private static final Logger LOG = Logger.getLogger(XmlValidator.class);
+    private static final Logger LOG = LoggerFactory.getLogger(XmlValidator.class);
 
     public static boolean validateAgainstXSD(String xmlFilePath, String xsdFilePath) {
         try {

@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.stax;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
@@ -19,7 +20,6 @@ import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_PREFIX;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMETER;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
@@ -31,7 +31,7 @@ import static ua.nure.publisher.parser.stax.util.StaxMarshallingUtils.writeEleme
 
 public class StaxMagazinesMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = Logger.getLogger(StaxMagazinesMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StaxMagazinesMarshallerImpl.class);
 
     @Override
     public void marshal(Magazines magazines, String filePath) {

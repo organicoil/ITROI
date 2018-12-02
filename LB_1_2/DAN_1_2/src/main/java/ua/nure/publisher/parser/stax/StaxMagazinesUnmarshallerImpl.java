@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.stax;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Category;
 import ua.nure.publisher.entity.Magazine;
 import ua.nure.publisher.entity.Magazines;
@@ -29,12 +30,11 @@ import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
 
 public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
-    private static final Logger LOG = Logger.getLogger(SaxMagazinesUnmarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SaxMagazinesUnmarshallerImpl.class);
 
     private boolean bTitle = false;
     private boolean bDescription = false;
     private boolean bPrice = false;
-    private boolean bPerMonthPublishCount = false;
     private boolean bCategory = false;
 
     private Magazines magazines = new Magazines();
@@ -50,6 +50,7 @@ public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
                 XMLEvent event = eventReader.nextEvent();
                 handleEvent(event);
             }
+            LOG.debug("Parsed magazines: {}", magazines);
             return magazines;
         } catch (FileNotFoundException | XMLStreamException e) {
             LOG.error("Failed to unmarshal magazines", e);
@@ -88,8 +89,6 @@ public class StaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
             bDescription = true;
         } else if (qName.equalsIgnoreCase(PRICE_TAG_NAME)) {
             bPrice = true;
-        } else if (qName.equalsIgnoreCase(PER_MONTH_PUBLISH_COUNT_TAG_NAME)) {
-            bPerMonthPublishCount = true;
         } else if (qName.equalsIgnoreCase(CATEGORY_TAG_NAME)) {
             bCategory = true;
         }

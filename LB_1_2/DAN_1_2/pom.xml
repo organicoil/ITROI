@@ -18,6 +18,8 @@
         <log4j.version>1.2.17</log4j.version>
         <junit.version>4.12</junit.version>
         <jdom2.version>2.0.6</jdom2.version>
+        <slf4jVersion>1.7.5</slf4jVersion>
+        <log4jVersion>1.2.16</log4jVersion>
     </properties>
 
     <build>
@@ -32,13 +34,7 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -49,6 +45,22 @@
             <groupId>org.jdom</groupId>
             <artifactId>jdom2</artifactId>
             <version>${jdom2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4jVersion}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.jaxb;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.nure.publisher.entity.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
 
@@ -15,7 +16,7 @@ import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATI
 
 public class JaxbMagazineMarshallerImpl implements MagazinesMarshaller {
 
-    private static final Logger LOG = Logger.getLogger(JaxbMagazineMarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(JaxbMagazineMarshallerImpl.class);
 
     public void marshal(Magazines magazines, String filePath) {
         try (OutputStream outputStream = new FileOutputStream(filePath)) {

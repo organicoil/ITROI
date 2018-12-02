@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.dom;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,11 +27,13 @@ import static ua.nure.publisher.parser.dom.util.DomUnmarshallingUtils.getValue;
 
 public class DomMagazineUnmarshallerImpl implements MagazinesUnmarshaller {
 
-    private static final Logger LOG = Logger.getLogger(DomMagazineUnmarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DomMagazineUnmarshallerImpl.class);
 
     public Magazines unmarshal(String filePath) {
         try {
-            return unmarshalMagazines(filePath);
+            Magazines magazines = unmarshalMagazines(filePath);
+            LOG.debug("Parsed magazines: {}", magazines);
+            return magazines;
         } catch (ParserConfigurationException | IOException | SAXException e) {
             LOG.error("Failed to un-marshal magazines", e);
             return new Magazines();

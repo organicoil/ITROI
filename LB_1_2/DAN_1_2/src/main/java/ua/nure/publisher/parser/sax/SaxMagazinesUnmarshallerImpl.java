@@ -1,6 +1,7 @@
 package ua.nure.publisher.parser.sax;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -12,12 +13,14 @@ import java.io.IOException;
 
 public class SaxMagazinesUnmarshallerImpl implements MagazinesUnmarshaller {
 
-    private static final Logger LOG = Logger.getLogger(SaxMagazinesUnmarshallerImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SaxMagazinesUnmarshallerImpl.class);
 
     @Override
     public Magazines unmarshal(String filePath) {
         try {
-            return unmarshalMagazines(filePath);
+            Magazines magazines = unmarshalMagazines(filePath);
+            LOG.debug("Parsed magazines: {}", magazines);
+            return magazines;
         } catch (SAXException | IOException e) {
             LOG.error("Failed to unmarshal magazines", e);
             return new Magazines();
