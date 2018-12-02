@@ -19,7 +19,6 @@ import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_PREFIX;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_SCHEMA_LOCATION;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINES_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.MAGAZINE_TAG_NAME;
-import static ua.nure.publisher.constants.ValueConstants.PER_MONTH_PUBLISH_COUNT_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.PRICE_TAG_NAME;
 import static ua.nure.publisher.constants.ValueConstants.SCHEMA_LOCATION_PARAMETER;
 import static ua.nure.publisher.constants.ValueConstants.TITLE_TAG_NAME;
