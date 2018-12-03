@@ -2,8 +2,8 @@ package ua.nure.publisher.parser.stax;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesMarshaller;
 
 import javax.xml.stream.XMLOutputFactory;

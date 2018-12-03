@@ -8,9 +8,9 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.input.sax.XMLReaders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.nure.publisher.entity.Category;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Category;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 
 import java.io.IOException;

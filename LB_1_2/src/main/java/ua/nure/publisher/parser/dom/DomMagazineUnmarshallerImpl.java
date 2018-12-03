@@ -7,9 +7,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import ua.nure.publisher.entity.Category;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Category;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.MagazinesUnmarshaller;
 
 import javax.xml.parsers.DocumentBuilder;

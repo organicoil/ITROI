@@ -2,9 +2,9 @@ package ua.nure.publisher.parser;
 
 import org.junit.Before;
 import org.junit.Test;
-import ua.nure.publisher.entity.Category;
-import ua.nure.publisher.entity.Magazine;
-import ua.nure.publisher.entity.Magazines;
+import ua.nure.publisher.dto.Category;
+import ua.nure.publisher.dto.Magazine;
+import ua.nure.publisher.dto.Magazines;
 import ua.nure.publisher.parser.dom.DomMagazineUnmarshallerImpl;
 import ua.nure.publisher.parser.dom.DomMagazinesMarshallerImpl;
 import ua.nure.publisher.parser.jaxb.JaxbMagazineMarshallerImpl;
