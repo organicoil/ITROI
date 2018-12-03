@@ -1,4 +1,3 @@
-
 package ua.nure.journaldev.client;
 
 import javax.xml.namespace.QName;

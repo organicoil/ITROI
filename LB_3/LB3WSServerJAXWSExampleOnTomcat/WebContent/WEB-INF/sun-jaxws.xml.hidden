@@ -4,6 +4,6 @@
   version="2.0">
   <endpoint
       name="HelloPort"
-      implementation="ua.nure.itech.jaxws.service.Hello"
+      implementation="ua.nure.itech.jaxws.Hello"
       url-pattern="/hello"/>
 </endpoints>

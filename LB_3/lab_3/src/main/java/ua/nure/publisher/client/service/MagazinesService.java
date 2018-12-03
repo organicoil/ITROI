@@ -1,4 +1,9 @@
-package ua.nure.journaldev.client;
+
+package ua.nure.publisher.client.service;
+
+import ua.nure.publisher.client.dto.Magazine;
+import ua.nure.publisher.client.dto.Magazines;
+import ua.nure.publisher.client.dto.ObjectFactory;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -12,48 +17,50 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * JAX-WS RI 2.2.9-b130926.1035
  * Generated source version: 2.2
  */
-@WebService(name = "PersonService", targetNamespace = "http://service.server.journaldev.nure.ua/")
+@WebService(name = "MagazinesService", targetNamespace = "http://service.server.publisher.nure.ua/")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 @XmlSeeAlso({
         ObjectFactory.class
 })
-public interface PersonService {
+public interface MagazinesService {
 
     /**
      * @param arg0
-     * @return returns ua.nure.journaldev.client.Person
      */
     @WebMethod
-    @WebResult(partName = "return")
-    public Person getPerson(
-            @WebParam(name = "arg0", partName = "arg0")
-                    int arg0);
-
-    /**
-     * @return returns ua.nure.journaldev.client.PersonArray
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    public PersonArray getAllPersons();
-
-    /**
-     * @param arg0
-     * @return returns boolean
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    public boolean deletePerson(
+    void removeMagazineById(
             @WebParam(name = "arg0", partName = "arg0")
                     int arg0);
 
     /**
      * @param arg0
-     * @return returns boolean
+     */
+    @WebMethod
+    void addMagazine(
+            @WebParam(name = "arg0", partName = "arg0")
+                    Magazine arg0);
+
+    /**
+     * @param arg0
+     * @return returns ua.nure.publisher.client.Magazine
      */
     @WebMethod
     @WebResult(partName = "return")
-    public boolean addPerson(
+    Magazine getMagazineById(
             @WebParam(name = "arg0", partName = "arg0")
-                    Person arg0);
+                    int arg0);
+
+    /**
+     *
+     */
+    @WebMethod
+    void clearMagazines();
+
+    /**
+     * @return returns ua.nure.publisher.client.Magazines
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    Magazines getMagazines();
 
 }

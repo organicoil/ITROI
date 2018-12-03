@@ -33,8 +33,8 @@ public class Person implements Serializable {
     }
 
     @Override
-    public String toString(){
-        return id+"::"+name+"::"+age;
+    public String toString() {
+        return id + "::" + name + "::" + age;
     }
 
 }

@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 	
 	<jaxws:endpoint id="HelloAnnotated" 
-		implementor="ua.nure.itech.jaxws.service.Hello"
+		implementor="ua.nure.itech.jaxws.Hello"
 		endpointName="e:HelloPort" serviceName="s:HelloService"
 		address="/hello" 
 		xmlns:e="http://service.jaxws.itech.nure.ua/"

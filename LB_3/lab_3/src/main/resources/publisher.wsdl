@@ -1,0 +1,61 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://impl.service.server.publisher.nure.ua/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://impl.service.server.publisher.nure.ua/"
+             name="MagazinesServiceImplService">
+    <import namespace="http://service.server.publisher.nure.ua/"
+            location="http://localhost:8888/soap/publisher?wsdl=1"/>
+    <binding xmlns:ns1="http://service.server.publisher.nure.ua/" name="MagazinesServiceImplPortBinding"
+             type="ns1:MagazinesService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+        <operation name="removeMagazineById">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </output>
+        </operation>
+        <operation name="addMagazine">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </output>
+        </operation>
+        <operation name="getMagazineById">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </output>
+        </operation>
+        <operation name="clearMagazines">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </output>
+        </operation>
+        <operation name="getMagazines">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://service.server.publisher.nure.ua/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="MagazinesServiceImplService">
+        <port name="MagazinesServiceImplPort" binding="tns:MagazinesServiceImplPortBinding">
+            <soap:address location="http://localhost:8888/soap/publisher"/>
+        </port>
+    </service>
+</definitions>

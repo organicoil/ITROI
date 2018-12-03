@@ -1,4 +1,3 @@
-
 package ua.nure.journaldev.client;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -82,6 +81,11 @@ public class Person {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    @Override
+    public String toString() {
+        return id + "::" + name + "::" + age;
     }
 
 }
