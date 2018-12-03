@@ -25,7 +25,12 @@
                     <xsl:value-of select="mag:price"/>
                 </li>
                 <li>
-                    <xsl:value-of select="mag:publishing"/>
+                    <xsl:if test="mag:publishing/mag:perMonthPublishCount">
+                        <xsl:value-of select="mag:publishing/mag:perMonthPublishCount"/>
+                    </xsl:if>
+                    <xsl:if test="mag:publishing/mag:publishType">
+                        <xsl:value-of select="mag:publishing/mag:publishType"/>
+                    </xsl:if>
                 </li>
                 <li>
                     <xsl:value-of select="mag:category"/>
