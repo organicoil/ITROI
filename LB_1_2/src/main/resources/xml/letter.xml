@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<let:letter xmlns:let="http://ua.nure/letter/">
+    Dear <let:to>Pedro</let:to>!
+    You just purchased <let:productName>potato</let:productName> in an amount of
+    <let:amount>5</let:amount><let:unit>kg</let:unit>
+    Item will be delivered ad <let:deliveryTime>6 pm</let:deliveryTime>.
+</let:letter>
