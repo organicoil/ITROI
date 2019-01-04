@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:pr="http://ua.nure/product/"
-            targetNamespace="http://ua.nure/product/"
+            xmlns:pr="http://ua.nure/another-product/"
+            targetNamespace="http://ua.nure/another-product/"
             elementFormDefault="qualified">
 
     <xsd:simpleType name="non-empty-string">
@@ -11,7 +11,7 @@
     </xsd:simpleType>
 
     <xsd:simpleType name="price">
-        <xsd:restriction base="xsd:decimal">
+        <xsd:restriction base="xsd:double">
             <xsd:minInclusive value="0"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -28,6 +28,7 @@
             <xsd:element name="price" type="pr:price"/>
             <xsd:element name="descr" type="xsd:string" minOccurs="0"/>
             <xsd:element name="categories" type="pr:categories" minOccurs="0"/>
+            <xsd:element name="chars" type="pr:chars"/>
         </xsd:all>
         <xsd:attribute name="id" type="xsd:integer"/>
     </xsd:complexType>
@@ -35,34 +36,42 @@
     <xsd:complexType name="char">
         <xsd:all>
             <xsd:element name="name" type="pr:non-empty-string"/>
-            <xsd:element name="value" type="pr:non-empty-string"/>
         </xsd:all>
     </xsd:complexType>
 
-    <xsd:complexType name="chars">
-        <xsd:sequence>
-            <xsd:element name="char" type="pr:char" maxOccurs="unbounded"/>
-        </xsd:sequence>
-    </xsd:complexType>
-
-    <xsd:complexType name="electro">
+    <xsd:complexType name="int-char">
         <xsd:complexContent>
-            <xsd:extension base="pr:product">
+            <xsd:extension base="pr:char">
                 <xsd:all>
-                    <xsd:element name="type" type="pr:non-empty-string"/>
-                    <xsd:element name="chars" type="pr:chars"/>
+                    <xsd:element name="value" type="xsd:integer"/>
                 </xsd:all>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
 
+    <xsd:complexType name="double-char">
+        <xsd:complexContent>
+            <xsd:extension base="pr:char">
+                <xsd:all>
+                    <xsd:element name="value" type="xsd:double"/>
+                </xsd:all>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="chars">
+        <xsd:sequence>
+            <xsd:choice>
+                <xsd:element name="int-char" type="pr:int-char" maxOccurs="unbounded"/>
+                <xsd:element name="double-char" type="pr:double-char" maxOccurs="unbounded"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+
     <xsd:element name="products">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="product" type="pr:product"/>
-                    <xsd:element name="electro" type="pr:electro"/>
-                </xsd:choice>
+                <xsd:element name="product" type="pr:product" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

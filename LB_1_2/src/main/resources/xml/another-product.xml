@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pr:products xmlns:pr="http://ua.nure/another-product/">
+
+    <pr:product id="1">
+        <pr:name>Cool Mag 1</pr:name>
+        <pr:price>999</pr:price>
+        <pr:descr>asdas</pr:descr>
+        <pr:chars>
+            <pr:int-char>
+                <pr:name>1312</pr:name>
+                <pr:value>1231</pr:value>
+            </pr:int-char>
+        </pr:chars>
+    </pr:product>
+
+</pr:products>
