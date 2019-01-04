@@ -9,7 +9,7 @@
 <body>
 	<c:choose>
 		<c:when test="${books.size() > 0}">
-			<table>
+			<table border=1>
             	<tr>
             		<td>№</td>
             		<td>Name</td>
