@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+	<book id="1">
+		<title>Буратино</title>
+		<author>Он же</author>
+		<price>0,0</price>
+		<count>0</count>
+	</book>
+	<book id="2">
+		<title>Буратино2</title>
+		<author>Он же2</author>
+		<price>2</price>
+		<count>2</count>
+	</book>
+</books>

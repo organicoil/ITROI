@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://ua.nure/letter/"
+            elementFormDefault="qualified">
+    <xsd:element name="letter" type="letterType"/>
+    <xsd:complexType name="letterType" mixed="true">
+        <xsd:sequence>
+            <xsd:element type="xsd:string" name="to"/>
+            <xsd:element type="xsd:string" name="productName"/>
+            <xsd:element type="xsd:string" name="amount"/>
+            <xsd:element type="xsd:string" name="unit"/>
+            <xsd:element type="xsd:string" name="deliveryTime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
